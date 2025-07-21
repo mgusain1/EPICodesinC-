@@ -1,0 +1,18 @@
+vector<int> getPrimes(int n)
+{
+    vector<int> ans;
+    vector<bool> park(n+1,true);
+    park[0]=park[1] = false;
+    for(int i=2;i<=n;i++)
+    {
+        if(park[i])
+        {
+            ans.push_back(i);
+            for(int j=i;j<=n;j+=i)
+            {
+                park[j] = false;
+            }
+        }
+    }
+    return ans;
+}
