@@ -1,0 +1,32 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+string nextTerm(string s)
+{
+    string res = "";
+    for(int i=0;i<s.length();)
+    {
+        char temp = s[i];
+        int j = i;
+        while(j<s.length() && s[j]==temp) j++;
+        res+=to_string(j-i);
+        res+=temp;
+        i = j;
+    }
+    return res;
+}
+
+string lookandsay(int n)
+{
+    if(n==0) return "";
+    if(n==1) return "1";
+    string s = "1";
+    for(int i=1;i<n;i++)
+    {
+        s = nextTerm(s);
+    }
+    return s;
+}
+
+
